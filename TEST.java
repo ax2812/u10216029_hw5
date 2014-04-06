@@ -1,4 +1,4 @@
-package computer;
+//package computer;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -15,13 +15,13 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.util.Scanner ;
 public class TEST extends JFrame {
-
+        //把該用東西叫出來
 	private JPanel contentPane;
 	private static JTextField textField;
 	private static JButton a1 ;
-	private static long num;
-	private static byte fc = 0 ;
-	private static long result;
+	private static long num;     //結果 
+	private static byte fc = 0 ; //等於鍵所判定動作類型
+	private static long result;  //另一個儲存空間
 	private static JButton a2;
 	private static JButton a3;
 	private static JButton a4;
@@ -42,7 +42,7 @@ public class TEST extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		
+		//用Scanner 座輸入密碼 用for迴圈 if判定密碼正確
 		Scanner input = new Scanner(System.in);
 		
 		for(int i = 0 ; i < 1000000 ; i++ ){
@@ -57,7 +57,7 @@ public class TEST extends JFrame {
 			
 		}
 		
-		
+		//執行介面
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -74,7 +74,8 @@ public class TEST extends JFrame {
 	 * Create the frame.
 	 */
 	public TEST() {
-		setTitle("\u8A08\u7B97\u6A5F");
+		//做出板面 按鈕
+                setTitle("\u8A08\u7B97\u6A5F");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 266, 306);
 		contentPane = new JPanel();
@@ -171,18 +172,20 @@ public class TEST extends JFrame {
 		tj.addActionListener(new Act() );		
 		
 	}
+
+         //做出對應按鈕所作的指令
 	public static class Act implements ActionListener {
 
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			String a = null  ;
 			
-			JButton btn=(JButton) e.getSource();
+			JButton btn=(JButton) e.getSource(); //getSource判定按鈕
 			if( btn == a1) {
 				num *= 10 ;
 				num += 1 ;
 				a = ("" + num) ; 
-				textField.setText(a);
+				textField.setText(a); //顯示數字
 			}
 			if( btn == a2) {
 				num *= 10 ;
@@ -274,6 +277,7 @@ public class TEST extends JFrame {
 				textField.setText(a);
 			}
 			if(btn == eq){
+                         //案等於劍 判定+-*/ 做出動作
 				switch(fc){
 				case 1:{
 					result += num;
